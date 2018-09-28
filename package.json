@@ -1,0 +1,28 @@
+{
+  "name": "authapi",
+  "version": "1.0.0",
+  "description": "\"# authapi\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandreceti/authapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandreceti/authapi/issues"
+  },
+  "homepage": "https://github.com/alexandreceti/authapi#readme",
+  "dependencies": {
+    "hapi": "^17.6.0",
+    "hapi-router": "^4.0.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "joi": "^13.6.0",
+    "vision": "^5.4.0"
+  }
+}
