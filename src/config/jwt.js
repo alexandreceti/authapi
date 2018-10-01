@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const HapiNowAuth = require('@now-ims/hapi-now-auth')
 const plugin = {
   name: 'seguranca',
@@ -9,7 +9,7 @@ const plugin = {
     server.auth.strategy('jwt', 'hapi-now-auth', {
       verifyJWT: true,
       allowMultipleHeaders: true,
-      keychain: [process.env.JWT1, process.env.JWT2],
+      keychain: ['chavesecreta'],
       validate: async (request, token, h) => {
         return {
           isValid: typeof token === 'object',

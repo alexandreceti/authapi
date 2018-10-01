@@ -6,7 +6,7 @@ let schema = {}
 
 schema.login = Joi.object().keys({
   email: Joi.string().email().required(),
-  password: Joi.string().strip()
+  password: Joi.string().required()
 })
 
 

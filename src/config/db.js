@@ -1,11 +1,6 @@
 'use strict'
-
-let knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: './mydb.sqlite'
-  }
-})
+let knexfile = require('../../knexfile')
+let knex = require('knex')(knexfile)
 let bookshelf = require('bookshelf')(knex)
 let bookshelfUuid = require('bookshelf-uuid')
 let bookshelfBcrypt = require('bookshelf-bcrypt')

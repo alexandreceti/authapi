@@ -10,7 +10,7 @@ let rotas = [
     {
     path: '/v1/login',
     method: 'POST',
-    handler: api.login,
+    handler: api.auth,
     options: {
       // auth: { strategy: 'jwt', scope: ['admin', 'partner'] },
       description: 'Login acesso',
@@ -22,6 +22,14 @@ let rotas = [
       response: {
         schema: schema.response
       }
+    }
+  },
+  {
+    path: '/api/v1/login/info',
+    method: 'GET',
+    handler: api.info,
+    options: {
+      auth: {strategy: 'jwt'}
     }
   }
   

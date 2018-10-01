@@ -28,20 +28,8 @@ const swaggerOptions = {
       description: 'recurso de authenticação'
     },
     {
-      name: 'livros',
-      description: 'recurso de livros'
-    },
-    {
-      name: 'editoras',
-      description: 'recurso de editoras'
-    },
-    {
-      name: 'pedidos',
-      description: 'recurso de pedidos'
-    },
-    {
-      name: 'Carrinhos',
-      description: 'recurso de pedidos'
+      name: 'user',
+      description: 'recurso de usuarios.'
     }
   ]
 }
@@ -51,7 +39,7 @@ module.exports = async function register (server) {
     return await server.register([{
       plugin: require('inert')
     },
-    //{ plugin: require('./jwt')},
+    { plugin: require('./jwt')},
     {
       plugin: require('hapi-router'),
       options: {
