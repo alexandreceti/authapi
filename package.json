@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/nodemon server.js"
+    "start": "./node_modules/.bin/nodemon server.js",
+    "knex": "knex --knexfile ./knexfile.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,17 @@
   },
   "homepage": "https://github.com/alexandreceti/authapi#readme",
   "dependencies": {
+    "bcrypt": "^3.0.1",
+    "bookshelf": "^0.13.3",
+    "bookshelf-bcrypt": "^2.2.0",
+    "bookshelf-uuid": "^1.0.0",
     "hapi": "^17.6.0",
     "hapi-router": "^4.0.0",
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",
     "joi": "^13.6.0",
+    "knex": "^0.13.0",
+    "sqlite3": "^4.0.2",
     "vision": "^5.4.0"
   }
 }
