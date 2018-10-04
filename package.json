@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/alexandreceti/authapi#readme",
   "dependencies": {
-    "@now-ims/hapi-now-auth": "^1.1.2",
     "bcrypt": "^3.0.1",
     "bookshelf": "^0.13.3",
     "bookshelf-bcrypt": "^2.2.0",
     "bookshelf-uuid": "^1.0.0",
     "hapi": "^17.6.0",
+    "hapi-auth-jwt2": "^8.1.0",
     "hapi-router": "^4.0.0",
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",

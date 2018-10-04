@@ -16,6 +16,13 @@ const swaggerOptions = {
       email: 'alexandrecunha.eti@gmail.com'
     }
   },
+  securityDefinitions: {
+    jwt: {
+      type: 'apiKey',
+      name: 'Authorization',
+      in: 'header'
+    }
+  },
   expanded: 'list',
   documentationPath: '/docs',
   grouping: 'tags',
@@ -28,8 +35,8 @@ const swaggerOptions = {
       description: 'recurso de authenticação'
     },
     {
-      name: 'user',
-      description: 'recurso de usuarios.'
+      name: 'users',
+      description: 'Recurso de usuarios.'
     }
   ]
 }
@@ -39,7 +46,7 @@ module.exports = async function register (server) {
     return await server.register([{
       plugin: require('inert')
     },
-    { plugin: require('./jwt') },
+    { plugin: require('./jwt2') },
     {
       plugin: require('hapi-router'),
       options: {

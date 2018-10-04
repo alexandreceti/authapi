@@ -13,6 +13,9 @@ const plugin = {
 
       keychain: ['chavesecreta'],
       validate: async (request, token, h) => {
+        console.log('------ token -------')
+        console.log(token)
+        console.log('---- request ----')
         console.log(request)
         return {
           isValid: typeof token === 'object',
