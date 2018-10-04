@@ -9,7 +9,7 @@ api.auth = async (request, h, error) => {
   try {
     console.log(request.payload)
     let user = {}
-    return await User.forge({email: request.payload.email})
+    return await User.forge({ email: request.payload.email })
       .fetch({ require: true })
       .then((response) => {
         return response.compare(request.payload.password)
@@ -42,7 +42,7 @@ api.auth = async (request, h, error) => {
       })
       .then((userValid) => {
         const token = jwt.sign(userValid, 'chavesecreta')
-        return ({token: token})
+        return ({ token: token })
       })
       .catch(err => {
         // console.log(e)
@@ -60,9 +60,25 @@ api.info = async (request, h, error) => {
     // const pool = request.mysql.pool
     console.log(request.auth)
     // const [rows] = await pool.query(querys.cidades, [request.auth.credentials.id])
-    let info = {credentials: request.auth.credentials, artifacts: request.auth.artifacts}
+    let info = { credentials: request.auth.credentials, artifacts: request.auth.artifacts }
     // console.log(rows[0].cidades)
-    return ({info})
+    return ({ info })
+  } catch (err) {
+    console.log(err)
+    throw Boom.internal('Internal Mysql Error', err)
+  }
+}
+
+api.isvalid = async (request, h, error) => {
+  // TODO: Informações do usuario.
+  try {
+    // const pool = request.mysql.pool
+    console.log('==== isvalid ====')
+    console.log(request.auth)
+    // const [rows] = await pool.query(querys.cidades, [request.auth.credentials.id])
+    // let info = { credentials: request.auth.credentials, artifacts: request.auth.artifacts }
+    // console.log(rows[0].cidades)
+    return ({ valid: request.auth.isAuthenticated })
   } catch (err) {
     console.log(err)
     throw Boom.internal('Internal Mysql Error', err)

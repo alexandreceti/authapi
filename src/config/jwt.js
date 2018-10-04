@@ -8,9 +8,12 @@ const plugin = {
 
     server.auth.strategy('jwt', 'hapi-now-auth', {
       verifyJWT: true,
+      allowQueryToken: true,
       allowMultipleHeaders: true,
+
       keychain: ['chavesecreta'],
       validate: async (request, token, h) => {
+        console.log(request)
         return {
           isValid: typeof token === 'object',
           credentials: token.decodedJWT,

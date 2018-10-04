@@ -39,7 +39,7 @@ module.exports = async function register (server) {
     return await server.register([{
       plugin: require('inert')
     },
-    { plugin: require('./jwt')},
+    { plugin: require('./jwt') },
     {
       plugin: require('hapi-router'),
       options: {
