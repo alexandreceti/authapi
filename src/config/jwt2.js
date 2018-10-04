@@ -2,10 +2,10 @@
 
 // bring your own validation function
 const validate = async (token, request) => {
-  console.log('------ decoded -------')
-  console.log(token)
-  console.log('---- request ----')
-  console.log(request.auth)
+  //console.log('------ decoded -------')
+  //console.log(token)
+  //console.log('---- request ----')
+  //console.log(request.auth)
 
   return {
     isValid: typeof token === 'object',
@@ -18,7 +18,7 @@ const validate = async (token, request) => {
 
 const plugin = {
   name: 'seguranca',
-  version: '1.0.0',
+  version: '1.0.1',
   register: async function (server, options) {
     await server.register(require('hapi-auth-jwt2'))
 
