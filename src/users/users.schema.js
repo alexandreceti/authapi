@@ -7,7 +7,7 @@ schema.create = Joi.object().keys({
   last_name: Joi.string().allow('').optional(),
   email: Joi.string().email().required(),
   password: Joi.string().min(4).max(30).required(),
-  level: Joi.number().required().valid(1, 2, 3),
+  scope: Joi.string().required().valid('admin', 'partner', 'user'),
   avatar: Joi.string().optional()
 })
 
@@ -15,7 +15,7 @@ schema.update = Joi.object().keys({
   name: Joi.string().min(4).max(60).optional(),
   last_name: Joi.string().allow('').optional(),
   email: Joi.string().email().optional(),
-  level: Joi.number().optional().valid(1, 2, 3),
+  scope: Joi.string().optional().valid('admin', 'partner', 'user'),
   avatar: Joi.string().optional()
 })
 
@@ -31,7 +31,7 @@ const shema2 = Joi.object().keys({
   nome: Joi.string().min(4).max(60).required(),
   sobrenome: Joi.string().allow('').optional(),
   email: Joi.string().email().required(),
-  nivel: Joi.number().required(),
+  scope: Joi.string().required().valid('admin', 'partner', 'user'),
   avatar: Joi.string().optional(),
   update_at: Joi.date().max('now').default(new Date()).optional()
 })
@@ -40,7 +40,7 @@ schema.userModel = Joi.object().keys({
   id: Joi.string().uuid().optional(),
   name: Joi.string().min(3).max(60).required(),
   last_name: Joi.string().allow('').optional(),
-  level: Joi.number().required(),
+  scope: Joi.string().required().valid('admin', 'partner', 'user'),
   avatar: Joi.string().optional(),
   email: Joi.string().email().required(),
   created_at: Joi.date(),
@@ -56,7 +56,7 @@ const responseShema = Joi.object().keys({
     avatar: Joi.string(),
     create_at: Joi.date(),
     update_at: Joi.date(),
-    nivel: Joi.number()
+    scope: Joi.string()
   })
 })
 

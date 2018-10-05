@@ -3,7 +3,7 @@ exports.up = (knex) => knex.schema.createTable('users', (table) => {
   table.uuid('id').primary()
   table.string('name')
   table.string('last_name')
-  table.integer('level')
+  table.string('scope')
   table.string('avatar')
   table.string('email').unique().notNullable()
   table.string('password').notNullable()

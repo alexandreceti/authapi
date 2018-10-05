@@ -67,14 +67,6 @@ api.edit = async (request, h, error) => {
 }
 
 api.update = async (request, h, error) => {
-  /** Lista dos usuarios do sistema.
-  * @param {String} ID ID do usuario para idendificar o usuario a ser alterado.
-  * @param {String} name nome do usuario
-  * @param {String} name_last Sobre nome do usuario
-  * @param {Number} level Sobre nome do usuario
-  * @param {String} password Senha do usuario
-  * @param {String} avatar Url da foto do usuario
-  */
 
   const userId = request.params.userId
   const userUpdate = request.payload
