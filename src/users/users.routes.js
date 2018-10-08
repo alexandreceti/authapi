@@ -1,9 +1,8 @@
 const api = require('./users.api.js')
-const { schema } = require('./users.schema')
-// const Boom = require('boom')
-// const Shema = require('./usuarios.schema')
+const schema = require('./users.schema')
+
 const Joi = require('joi')
-// const jwt = require('jsonwebtoken')
+
 let rotas = [
   {
     path: '/v1/users',
@@ -16,6 +15,9 @@ let rotas = [
       tags: ['api', 'users'],
       validate: {
         query: schema.list
+      },
+      response: {
+        schema: schema.responseArry
       }
     }
   },
@@ -30,13 +32,16 @@ let rotas = [
       tags: ['api', 'users'],
       validate: {
         payload: schema.create
+      },
+      response: {
+        schema: schema.response
       }
     }
   },
   {
     path: '/v1/users/{userId}',
     method: 'GET',
-    handler: api.edit,
+    handler: api.show,
     options: {
       auth: { strategy: 'jwt', scope: 'admin' },
       description: 'Busca usuario',
@@ -46,6 +51,9 @@ let rotas = [
         params: {
           userId: Joi.string().required()
         }
+      },
+      response: {
+        schema: schema.response
       }
     }
   },

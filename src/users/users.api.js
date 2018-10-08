@@ -25,7 +25,7 @@ api.list = async (request, h, error) => {
   /** Lista dos usuarios do sistema.
   * @param {String} name nome do usuario
   */
-  console.log('----List----')
+  // console.log('----List----')
   // console.log(request.query)
   const { query, page, pagesize, order } = request.query
   // console.log(query)
@@ -36,7 +36,7 @@ api.list = async (request, h, error) => {
       }
       q.orderBy(order)
     })
-      .fetchPage({ pageSize: pagesize, page: page, withRelated: ['albums', 'studies'], debug: true })
+      .fetchPage({ pageSize: pagesize, page: page }) //, debug: true
       // .fetch()
       .then((users) => {
         return users.toJSON()
@@ -49,10 +49,7 @@ api.list = async (request, h, error) => {
   }
 }
 
-api.edit = async (request, h, error) => {
-  /** Lista dos usuarios do sistema.
-  * @param {String} id ID do usuario para localizalo.
-  */
+api.show = async (request, h, error) => {
   const userId = request.params.userId
   // console.log(userId)
   try {
@@ -63,6 +60,7 @@ api.edit = async (request, h, error) => {
       })
   } catch (e) {
     console.log(e)
+    return Boom.badData(e.message)
   }
 }
 
@@ -94,7 +92,7 @@ api.delete = async (request, h, error) => {
   const userId = request.params.userId
   // const userUpdate = request.payload
   // console.log('#Update users')
-  // console.log(userId)
+  console.log(userId)
   // console.log(userUpdate)
   try {
     return User.where({ id: userId })

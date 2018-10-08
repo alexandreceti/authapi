@@ -1,6 +1,5 @@
 'use strict'
-const Joi = require('joi')
-
+// const Joi = require('joi')
 const api = require('./auth.api')
 const schema = require('./auth.schema')
 
@@ -19,6 +18,10 @@ let rotas = [
       },
       response: {
         schema: schema.response
+      },
+      cache: {
+        expiresIn: 30 * 1000,
+        privacy: 'private'
       }
     }
   },
@@ -31,13 +34,10 @@ let rotas = [
       // auth: true,
       description: 'Usuario valido?',
       notes: 'URL para verificar se o usuario e valido se sim returna true se não returna false',
-      tags: ['api', 'auth']
-      // validate: {
-      //   headers:
-      //     Joi.object({
-      //       'authorization': Joi.string().required().description('Authorization header containing the JSON Web Token')
-      //     }).unknown()
-      // }
+      tags: ['api', 'auth'],
+      response: {
+        schema: schema.isValid
+      }
     }
   },
   {
@@ -51,7 +51,10 @@ let rotas = [
       },
       description: 'Usuario authenicado',
       notes: 'URL para que buscas dados do usuario logado no sistema.',
-      tags: ['api', 'auth']
+      tags: ['api', 'auth'],
+      response: {
+        schema: schema.responseInfo
+      }
     }
   }
 

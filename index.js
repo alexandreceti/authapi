@@ -1,9 +1,17 @@
 'use strict'
 
 const Hapi = require('hapi')
-const ServerConf = require('./src/config/server')
 
-const server = Hapi.server(ServerConf[process.env.NODE_ENV || 'development'])
+const server = Hapi.server({
+  port: 3000,
+  routes: {
+    cors: true,
+    log: { collect: true }
+  }
+  // debug: {
+  //   request: ['error']
+  // }
+})
 
 const config = require('./src/config/config')
 

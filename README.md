@@ -16,3 +16,9 @@ npm start
 ## Swagger
 
 http://localhost:3000/docs
+
+## Executar Testes
+
+```
+npm test
+```

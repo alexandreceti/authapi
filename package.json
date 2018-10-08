@@ -1,11 +1,11 @@
 {
   "name": "authapi",
   "version": "1.0.0",
-  "description": "\"# authapi\"",
-  "main": "server.js",
+  "description": "Projeto de estudos Pos PUCMINAS",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -a code -v -C -l",
+    "start": "nodemon index.js",
     "knex": "knex --knexfile ./knexfile.js"
   },
   "repository": {
@@ -34,6 +34,8 @@
     "vision": "^5.4.0"
   },
   "devDependencies": {
+    "code": "^5.2.0",
+    "lab": "^16.1.0",
     "nodemon": "^1.18.4"
   }
 }

@@ -9,11 +9,10 @@ const swaggerOptions = {
   basePath: '/v1',
   // pathReplacements: ['livros', 'autores'],
   info: {
-    title: 'Documentação Livros API',
+    title: 'AuthAPI',
     version: Pack.version,
     contact: {
-      name: 'alexandre',
-      email: 'alexandrecunha.eti@gmail.com'
+      name: 'Alexandre Oliveira, Henrique Keppel'
     }
   },
   securityDefinitions: {
